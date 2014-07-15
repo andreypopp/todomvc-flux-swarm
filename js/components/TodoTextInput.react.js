@@ -45,6 +45,12 @@ var TodoTextInput = React.createClass({
     };
   },
 
+  componentWillReceiveProps: function(nextProps) {
+    if (nextProps.value !== this.state.value) {
+      this.setState({value: nextProps.value});
+    }
+  },
+
   /**
    * @return {object}
    */

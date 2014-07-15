@@ -6,14 +6,15 @@
 'use strict';
 
 var Swarm        = require('swarm');
+var Spec         = require('swarm/lib/Spec');
 var DummyStorage = require('swarm/lib/DummyStorage');
 
 var LOCALSTORAGE_KEY = '.todomvc-user';
-var SERVER = 'ws://localhost:3000';
+var SERVER = 'ws://' + window.location.host;
 
 function generateID(prefix) {
   prefix = prefix || 'anon';
-  return prefix + Swarm.Spec.int2base((Math.random() * 10000) | 0);
+  return prefix + Spec.int2base((Math.random() * 10000) | 0);
 }
 
 function getUserID() {
